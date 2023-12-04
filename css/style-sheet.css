@@ -1,5 +1,21 @@
 body{
     padding-top: 150px;
+    background-color:#6a3db3;
+}
+
+h1{
+    font-size:medium;
+}
+
+.Tfont{
+    font-size: larger;
+    font-weight:600;
+
+}
+
+.pBtnPadding{
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 
