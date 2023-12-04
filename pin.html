@@ -30,6 +30,28 @@
 </head>
 <body> 
 
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3 text-center">
+            
+            <h1 class="display-4 mb-4 mt-5">Pin Generator</h1>
+      
+            <button id="generateButton" class="btn btn-primary">Generate</button>
+
+            <div id="display"></div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <script>
+        document.getElementById('generateButton').addEventListener('click', function() {
+
+          var rand = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+
+          document.getElementById('display').innerText = rand;
+        });
+      </script>
 
     <footer class="text-center text-white fixed-bottom" style="background-color:#9260e0;" data-bs-theme="dark">
         <section class="d-flex justify-content-center" style="background-color:#9260e0;">
