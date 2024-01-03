@@ -1,0 +1,42 @@
+{{ template "header.html" .}}
+<body>
+    <div class="container mt-5 mb-5 d-flex align-items-center justify-content-center flex-column">
+        <div class="card text mb-3 bg-dark text-light" style="max-width: 18rem;">
+            <div class="card-header">Register</div>
+            <div class="card-body">
+            <h5 class="card-title">Please register your details to make an account</h5>
+            <!--If there's an error, display the error-->
+            {{ if .ErrorTitle}}
+            <p class="bg-danger">
+                {{.ErrorTitle}}: {{.ErrorMessage}}
+            </p>
+            {{end}}
+            <form class="form d-flex flex-column align-items-center" action="/u/register" method="POST">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date Of Birth</label>
+                    <input type="text" class="form-control" id="dob" placeholder="Date Of Birth">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary text-light" style="background-color: #9260e0; margin-top: 16px;">Register</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ template "footer.html" .}}
