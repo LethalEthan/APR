@@ -17,10 +17,13 @@ func showLoginPage(c *gin.Context) {
 }
 
 func showPersonalDetails(c *gin.Context) {
-	// Get token
-	token, err := c.Cookie("token")
+	token, err := c.Cookie("token") // Get token cookie
 	if err != nil {
 		log.Println(err)
+		c.HTML(http.StatusBadRequest, "login.html", gin.H{
+			"ErrorTitle":   "Login Failed",
+			"ErrorMessage": "Invalid credentials provided",
+		})
 		return
 	}
 	MID, err := db.QueryMemberIDByToken(token) // Get member ID by token
@@ -43,6 +46,7 @@ func showPersonalDetails(c *gin.Context) {
 		"fname":         M.FirstName,
 		"lname":         M.LastName,
 		"email":         M.Email,
+		"date":          M.DateOfBirth,
 		"wellnessgoals": M.WellnessGoals,
 	}, "personal-details.html")
 }
@@ -141,4 +145,16 @@ func register(c *gin.Context) {
 			"ErrorMessage": err.Error(),
 		})
 	}
+}
+
+func ShowNutritionPage(c *gin.Context) {
+	c.HTML(http.StatusBadRequest, "nutrition.html", nil)
+}
+
+func ShowPinPage(c *gin.Context) {
+	c.HTML(http.StatusBadRequest, "pin.html", nil)
+}
+
+func ShowCoachingPage(c *gin.Context) {
+	c.HTML(http.StatusBadRequest, "coaching.html", nil)
 }

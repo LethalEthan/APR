@@ -1,47 +1,45 @@
 {{ template "header.html" .}}
-
 <body>
     <div class="d-flex justify-content-center">
         <div class="card text-center" data-bs-theme="dark">
             <div class="card-header">Profile</div>
             <div class="card-body">
                 <div class="flex-column d-flex">
-                <form>
+                  <!--If there's an error, display the error-->
+                  {{ if .ErrorTitle}}
+                  <p class="bg-danger">
+                    {{.ErrorTitle}}: {{.ErrorMessage}}
+                  </p>
+                  {{end}}
+                  <form class="form d-flex flex-column align-items-center" action="/u/personal-details" method="POST">
                     <div class="input-group mb-3">
                         <span class="input-group-text">First Name</span>
-                        <input id="msg" type="text" class="form-control" name="msg" placeholder="{{.fname}}">
+                        <input id="msg" type="text" class="form-control" name="firstname" value="{{.fname}}" placeholder="First Name">
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text">Last Name</span>
-                        <input id="msg" type="text" class="form-control" name="msg" placeholder="{{.lname}}">
+                        <input id="msg" type="text" class="form-control" name="lastname" value="{{.lname}}" placeholder="Last Name">
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text">Email</span>
-                        <input id="msg" type="text" class="form-control" name="msg" placeholder="{{.email}}">
+                        <input id="msg" type="text" class="form-control" name="email" value="{{.email}}" placeholder="Email">
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text">DOB</span>
-                        <input id="startDate" class="form-control" type="date" value="{{.date}}" onfocus="(this.type='date')"/>
-                        <span id="startDateSelected"></span>
+                        <input class="form-control" type="date" name="date" value="{{.date}}" onfocus="(this.type='date')"/>
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text">Text</span>
-                        <input id="msg" type="text" class="form-control" name="msg" placeholder="{{.wellnessgoals}}">
+                        <input id="msg" type="text" class="form-control" name="wellnessgoals" value="{{.wellnessgoals}}" placeholder="Wellness Goals">
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text">Text</span>
-                        <input id="msg" type="text" class="form-control" name="msg" placeholder="Additional Info">
+                        <input id="msg" type="password" class="form-control" name="password" placeholder="Password">
                       </div>
+                      <button type="submit" class="btn btn-primary text-light" style="background-color: #9260e0; margin-top: 16px;">Update Details</button>
                     </form>
-                <!--
-                <span class="pBtnPadding"><a href="personal log.html" class="btn lightP" data-bs-theme="dark">Personal Log</a></span>
-                <span class="pBtnPadding"><a href="nutrition.html" class="btn lightP"data-bs-theme="dark">Nutritinal Information</a></span>
-                <span class="pBtnPadding"><a href="personal-details.html" class="btn lightP"data-bs-theme="dark">Personal Details</a></span>
-                <span class="pBtnPadding"><a href="pin.html" class="btn lightP"data-bs-theme="dark">Gym Access Pin</a></span>
-                <span class="pBtnPadding"><a href="coaching.html" class="btn lightP"data-bs-theme="dark">Coaching</a></span>
-                -->
-            </div>
+              </div>
             </div>
         </div>
     </div>
-    {{ template "footer.html" .}}
+{{ template "footer.html" .}}

@@ -1,0 +1,8 @@
+{{ template "header.html" .}}
+  {{range .payload }}
+    <a class="text-light" href="/personal-log/view/{{.LogID}}">
+      <h2>{{.LogContent}}</h2>
+    </a>
+    <p class="text-light">{{.LogRoutine}}</p>
+  {{end}}
+{{ template "footer.html" .}}

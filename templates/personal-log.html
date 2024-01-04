@@ -1,0 +1,10 @@
+{{ template "header.html" .}}
+<body>
+<div class="container"></div>
+    <h1 class="text-light fs-1">Content:</h1>
+    <p class="text-light">{{.payload.LogContent}}</p>
+    <h1 class="text-light fs-1">Routine:</h1>
+    <p class="text-light">{{.payload.LogRoutine}}</p>
+    <a href="../../personal-log/view">Back</a>
+</body>
+{{ template "footer.html" .}}

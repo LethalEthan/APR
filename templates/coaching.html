@@ -1,0 +1,20 @@
+{{ template "header.html" .}}
+<body> 
+<div class="container">
+    <button class="btn text-light" type="button" style="background-color:#9260e0;" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Progress
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body text-light" style="background-color:#9260e0;">
+        <input class="form-control form-control-lg" type="text" placeholder="Progress report" aria-label=".form-control-lg example">
+        Type progress report here for the user to view as feedback.
+      </div>
+      <span class="pBtnPadding"><a href="profile.html" class="btn" style="background-color:#9260e0;">Submit</a></span>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label text-light">Feedback from Coach</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Report from coach will be here once they have submitted."></textarea>
+      </div>
+</div>
+{{ template "footer.html" .}}
